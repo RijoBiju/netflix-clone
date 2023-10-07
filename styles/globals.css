@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #141414;
+}
+
+:root {
+  --bg-theme: #141414;
+  --primary-text-white: #fefefe;
+  --secondary-text-grey: #808080;
+}
