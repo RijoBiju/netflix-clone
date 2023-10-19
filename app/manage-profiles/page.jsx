@@ -1,30 +1,10 @@
-"use client";
-
-import Profile from "@components/Profile";
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-
-const Login = () => {
+const ManageProfiles = () => {
   const [profiles, setProfiles] = useState([]);
-  const searchParams = useSearchParams();
-
-  // useEffect(() => {
-  //   console.log(profiles);
-  //   setProfiles([
-  //     ...profiles,
-  //     {
-  //       username: searchParams.get("username"),
-  //       image: searchParams.get("profileImage"),
-  //     },
-  //   ]);
-  //   console.log(profiles);
-  // }, []);
-
+  
   return (
     <div className="flex flex-col items-center h-screen">
       <div className="flex items-end h-1/4 text-white font-semibold text-3xl">
-        <h3>Who's Watching?</h3>
+        <h3>Select a profile</h3>
       </div>
       <div className="h-2/5 flex items-center gap-10">
         {profiles.map((profile) => (
@@ -34,11 +14,6 @@ const Login = () => {
             name={profile.username}
           ></Profile>
         ))}
-        <Profile
-          redirect={"/add-profile"}
-          image={"/add.png"}
-          name={"Add Profile"}
-        ></Profile>
       </div>
       <div className="h-1/4">
         <Link
@@ -52,4 +27,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ManageProfiles;
