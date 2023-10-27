@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    domains: ["www.themoviedb.org"],
+  },
   webpack(config) {
     config.experiments = {
       ...config.experiments,
