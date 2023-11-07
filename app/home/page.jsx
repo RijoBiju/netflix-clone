@@ -1,9 +1,22 @@
+"use client";
+
 import NavBar from "@components/NavBar";
 import ShowCase from "@components/ShowCase";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  const [trending, setTrending] = useState({});
+  useEffect(() => {
+    fetch("/api/trending")
+      .then((res) => res.text())
+      .then((data) => {
+        console.log(data);
+        setTrending(data);
+      });
+  }, []);
+
   return (
     <div className="mb-5">
       <div className="flex flex-col h-[80vh] bg-[url('https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg')] bg-cover bg-clip-border bg-center bg-no-repeat">
@@ -60,11 +73,13 @@ const Home = () => {
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Popular Now</h3>
           <div className="flex gap-1">
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            {trending.results?.map((movie) => {
+              return (
+                <ShowCase
+                  image_src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
+                ></ShowCase>
+              );
+            })}
           </div>
         </div>
 
