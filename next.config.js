@@ -4,7 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ["www.themoviedb.org"],
+    domains: ["www.themoviedb.org", "image.tmdb.org", "localhost:3000"],
   },
   webpack(config) {
     config.experiments = {

@@ -7,13 +7,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const Home = () => {
-  const [trending, setTrending] = useState({});
+  const [trending, setTrending] = useState([]);
   useEffect(() => {
     fetch("/api/trending")
-      .then((res) => res.text())
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        setTrending(data);
+        setTrending(data.results);
       });
   }, []);
 
@@ -61,13 +60,15 @@ const Home = () => {
 
       <div className="flex flex-col gap-10">
         <div className="pl-10 flex flex-col gap-3">
-          <h3 className="text-white font-bold text-lg">Top Rated</h3>
-          <div className="flex gap-1">
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+          <h3 className="text-white font-bold text-lg">Trending</h3>
+          <div className="flex gap-1 relative whitespace-nowrap overflow-x-auto w-full">
+            {trending.map((movie) => {
+              return (
+                <ShowCase
+                  image_src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
+                ></ShowCase>
+              );
+            })}
           </div>
         </div>
         <div className="pl-10 flex flex-col gap-3">
