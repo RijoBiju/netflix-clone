@@ -61,7 +61,7 @@ const Home = () => {
       <div className="flex flex-col gap-10">
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Trending</h3>
-          <div className="flex gap-1 relative whitespace-nowrap overflow-x-auto w-full">
+          <div className="flex gap-4 overflow-x-auto flex-nowrap w-[90vw]">
             {trending.map((movie) => {
               return (
                 <ShowCase
@@ -86,7 +86,12 @@ const Home = () => {
 
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Action Movies</h3>
-          <div className="flex gap-1">
+          <div className="flex gap-1 w-full flex-nowrap overflow-x-auto">
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
@@ -98,11 +103,11 @@ const Home = () => {
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Documentaries</h3>
           <div className="flex gap-1">
+            {/* <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase> */}
           </div>
         </div>
       </div>
