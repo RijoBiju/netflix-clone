@@ -16,6 +16,15 @@ const Home = () => {
       });
   }, []);
 
+  const [popular, setPopular] = useState([]);
+  useEffect(() => {
+    fetch("/api/popular")
+      .then((res) => res.json())
+      .then((data) => {
+        setPopular(data.results);
+      });
+  }, []);
+
   return (
     <div className="mb-5">
       <div className="flex flex-col h-[80vh] bg-[url('https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg')] bg-cover bg-clip-border bg-center bg-no-repeat">
@@ -61,7 +70,7 @@ const Home = () => {
       <div className="flex flex-col gap-10">
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Trending</h3>
-          <div className="flex gap-4 overflow-x-auto flex-nowrap w-[90vw]">
+          <div className="trend flex gap-4 overflow-x-auto flex-nowrap w-[90vw] h-[23vh]">
             {trending.map((movie) => {
               return (
                 <ShowCase
@@ -73,8 +82,8 @@ const Home = () => {
         </div>
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Popular Now</h3>
-          <div className="flex gap-1">
-            {trending.results?.map((movie) => {
+          <div className="trend flex gap-4 overflow-x-auto flex-nowrap w-[90vw]">
+            {popular.map((movie) => {
               return (
                 <ShowCase
                   image_src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
@@ -84,7 +93,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="pl-10 flex flex-col gap-3">
+        {/* <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Action Movies</h3>
           <div className="flex gap-1 w-full flex-nowrap overflow-x-auto">
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
@@ -103,13 +112,13 @@ const Home = () => {
         <div className="pl-10 flex flex-col gap-3">
           <h3 className="text-white font-bold text-lg">Documentaries</h3>
           <div className="flex gap-1">
-            {/* <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
             <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
-            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase> */}
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
+            <ShowCase image_src="https://www.themoviedb.org/t/p/original/rcA17r3hfHtRrk3Xs3hXrgGeSGT.jpg"></ShowCase>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

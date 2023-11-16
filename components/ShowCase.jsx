@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ShowCase = ({ image_src }) => {
   return (
-    <div className="min-w-[290px] min-h-[140px]">
+    <div className="min-w-[290px] min-h-[140px] transition-[transform, margin] duration-200 ease-in hover:scale-[1.2] hover:mx-[25px]">
       <Image
         src={image_src}
         // objectFit="cover"
