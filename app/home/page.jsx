@@ -75,6 +75,8 @@ const Home = () => {
               return (
                 <ShowCase
                   image_src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
+                  title={movie.original_title}
+                  overview={movie.overview}
                 ></ShowCase>
               );
             })}
@@ -87,6 +89,8 @@ const Home = () => {
               return (
                 <ShowCase
                   image_src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
+                  title={movie.original_title}
+                  overview={movie.overview}
                 ></ShowCase>
               );
             })}

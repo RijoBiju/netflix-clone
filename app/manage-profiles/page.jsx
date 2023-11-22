@@ -1,6 +1,8 @@
+import { useState } from "react";
+
 const ManageProfiles = () => {
   const [profiles, setProfiles] = useState([]);
-  
+
   return (
     <div className="flex flex-col items-center h-screen">
       <div className="flex items-end h-1/4 text-white font-semibold text-3xl">
